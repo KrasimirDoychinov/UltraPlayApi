@@ -15,7 +15,7 @@ namespace UltraPlayApi.Web.ViewModels.Odds
 
         public string SpecialBetValue { get; set; }
 
-        //public bool HasSpecialBetValue => this.SpecialBetValue != null ? true : false;
+        public int UniqueId { get; set; }
 
     }
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UltraPlayApi.Data;
 using UltraPlayApi.Data.Models;
+using UltraPlayApi.Services.AutoMapper;
 using UltraPlayApi.Services.Interfaces;
 
 namespace UltraPlayApi.Services.Implementations
@@ -12,7 +14,7 @@ namespace UltraPlayApi.Services.Implementations
     public class MatchServices : IMatchServices
     {
         private readonly ApplicationDbContext context;
-
+        private DateTime dateNow = DateTime.Now;
         public MatchServices(ApplicationDbContext context)
         {
             this.context = context;
@@ -33,5 +35,15 @@ namespace UltraPlayApi.Services.Implementations
             }
         }
 
+        public T GetMatchById<T>(int uniqueId, IMapper mapper = null)
+             => this.context.Matches
+            .Where(x => x.UniqueId == uniqueId)
+            .To<T>(mapper)
+            .FirstOrDefault();
+
+        public IEnumerable<T> GetMatchesIn24Hours<T>(IMapper mapper = null)
+            => this.context.Matches
+            .To<T>(mapper)
+            .ToList();
     }
 }

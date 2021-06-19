@@ -14,7 +14,7 @@ namespace UltraPlayApi.Web.ViewModels.Events
 
         public bool IsLive { get; set; }
 
-        //public string IsLiveParsed => this.IsLive == true ? "Live" : "Not live";
+        public int UniqueId { get; set; }
 
         public IEnumerable<MatchDto> Matches { get; set; }
 

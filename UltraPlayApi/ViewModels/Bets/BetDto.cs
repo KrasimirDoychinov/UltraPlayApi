@@ -14,8 +14,6 @@ namespace UltraPlayApi.Web.ViewModels.Bets
 
 		public bool IsLive { get; set; }
 
-		//public string IsLiveParsed => this.IsLive == true ? "Live" : "Not live";
-
 		public int UniqueId { get; set; }
 
 		public IEnumerable<OddDto> Odds { get; set; }

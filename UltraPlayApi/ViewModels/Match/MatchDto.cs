@@ -12,20 +12,12 @@ namespace UltraPlayApi.Web.ViewModels.Match
     {
         public string Name { get; set; }
 
-        //public string TeamA => this.Name.Split(" - ")[0];
+        public int UniqueId { get; set; }
 
-        //public string TeamB => this.Name.Split(" - ")[1];
+        public DateTime StartDate { get; set; }
 
         public MatchType MatchType { get; set; }
 
-        //public string MatchTypeParsed => this.MatchType.ToString();
-
         public IEnumerable<BetDto> Bets { get; set; }
-
-    //    public BetDto MatchWinnerBet => this.Bets.FirstOrDefault(x => x.Name == "Match Winner");
-
-    //    public string TeamAOdds => this.MatchWinnerBet == null ? null : this.MatchWinnerBet.Odds.ToList()[0].Value;
-
-    //    public string TeamBOdds => this.MatchWinnerBet == null ? null : this.MatchWinnerBet.Odds.ToList()[1].Value;
     }
 }

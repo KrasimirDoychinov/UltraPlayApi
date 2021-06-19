@@ -20,7 +20,7 @@ namespace UltraPlayApi.Data.Models
         public string Name { get; set; }
 
         [XmlAttribute(AttributeName = "StartDate")]
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [XmlAttribute(AttributeName = "MatchType")]
         public MatchType MatchType { get; set; }

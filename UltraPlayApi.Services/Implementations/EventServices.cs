@@ -28,7 +28,7 @@ namespace UltraPlayApi.Services.Implementations
         {
             var dateNow = DateTime.Now;
             events.AsParallel()
-                .ForAll(x => x.Matches = x.Matches.Where(y => (dateNow - DateTime.Parse(y.StartDate)).Days == 0)
+                .ForAll(x => x.Matches = x.Matches.Where(y => (dateNow - y.StartDate).Days == 0)
                 .ToList());
             return events.Where(x => x.Matches.Count > 0);
         }

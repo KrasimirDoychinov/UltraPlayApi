@@ -12,6 +12,8 @@ namespace UltraPlayApi.Web.ViewModels.Sports
     {
         public string Name { get; set; }
 
+        public int UniqueId { get; set; }
+
         public IEnumerable<EventDto> Events { get; set; }
     }
 }
