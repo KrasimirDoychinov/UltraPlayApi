@@ -7,3 +7,6 @@ C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\obj\Debug\netstand
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\obj\Debug\netstandard2.1\UltraPlayApi.Services.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\obj\Debug\netstandard2.1\UltraPlayApi.Services.dll
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\obj\Debug\netstandard2.1\UltraPlayApi.Services.pdb
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\bin\Debug\netstandard2.1\UltraPlayApi.Data.dll
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\bin\Debug\netstandard2.1\UltraPlayApi.Data.pdb
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Services\obj\Debug\netstandard2.1\UltraPlayApi.Services.csproj.CopyComplete

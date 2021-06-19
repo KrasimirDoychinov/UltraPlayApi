@@ -35,7 +35,7 @@ namespace UltraPlayApi.Data
                 optionsBuilder.UseSqlServer("Server=.;Database=UltraPlayApi;Integrated Security=true;");
             }
 
-            optionsBuilder.UseLazyLoadingProxies();
+            //optionsBuilder.UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

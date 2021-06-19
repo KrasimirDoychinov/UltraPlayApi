@@ -1,9 +1,9 @@
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\bin\Debug\netstandard2.1\UltraPlayApi.Data.deps.json
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\bin\Debug\netstandard2.1\UltraPlayApi.Data.dll
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\bin\Debug\netstandard2.1\UltraPlayApi.Data.pdb
-C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.csprojAssemblyReference.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.AssemblyInfoInputs.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.AssemblyInfo.cs
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.dll
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.pdb
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.csprojAssemblyReference.cache

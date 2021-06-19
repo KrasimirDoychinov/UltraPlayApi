@@ -23,7 +23,6 @@ C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayA
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayApi.Web.AssemblyInfoInputs.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayApi.Web.AssemblyInfo.cs
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayApi.Web.csproj.CoreCompileInputs.cache
-C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayApi.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayApi.Web.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\staticwebassets\UltraPlayApi.Web.StaticWebAssets.Manifest.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\staticwebassets\UltraPlayApi.Web.StaticWebAssets.xml
@@ -87,3 +86,9 @@ C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\runtimes\w
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\UltraPlayApi.Data.dll
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\UltraPlayApi.Services.dll
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\UltraPlayApi.Data.pdb
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\bin\Debug\net5.0\UltraPlayApi.Services.pdb
+C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi\obj\Debug\net5.0\UltraPlayApi.Web.MvcApplicationPartsAssemblyInfo.cs
