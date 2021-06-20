@@ -1,37 +1,34 @@
 using Hangfire;
 using Hangfire.SqlServer;
-using Hangfire.Storage;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
+
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+
 using UltraPlayApi.Data;
-using UltraPlayApi.Data.Models;
 using UltraPlayApi.Services.AutoMapper;
 using UltraPlayApi.Services.Implementations;
 using UltraPlayApi.Services.Interfaces;
-using UltraPlayApi.Web.Seeder;
-using UltraPlayApi.Web.ViewModels.Sports;
-using static UltraPlayApi.Data.Common.GlobalConstants;
+using UltraPlayApi.Web.ViewModels.Events;
 
 namespace UltraPlayApi.Web
 {
+
+    // TODO
+    // Add try catch
+    // Ask about the 24hour endpoint
+    // Refactor code
+    // Check for errors, readability, reusability and etc.
+    // Write some comments
+    // Write some tests
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -80,6 +77,9 @@ namespace UltraPlayApi.Web
             services.AddTransient<IOddsServices, OddsServices>();
             services.AddTransient<IBetServices, BetServices>();
             services.AddTransient<IHangfireServices, HangfireServices>();
+            services.AddTransient(typeof(BetUpdateMessageServices));
+            services.AddTransient(typeof(MatchUpdateMessageServices));
+            services.AddTransient(typeof(OddUpdateMessageServices));
             services.AddTransient(typeof(HttpClient));
             services.AddTransient(typeof(HttpResponseMessage));
         }
@@ -87,7 +87,7 @@ namespace UltraPlayApi.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHangfireServices hangfireServices)
         {
-            AutoMapperConfig.RegisterMappings(typeof(SportDto).GetTypeInfo().Assembly);
+            AutoMapperConfig.RegisterMappings(typeof(EventDto).GetTypeInfo().Assembly);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -101,7 +101,6 @@ namespace UltraPlayApi.Web
             app.UseHangfireDashboard();
             app.UseRouting();
 
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -110,17 +109,14 @@ namespace UltraPlayApi.Web
                 endpoints.MapHangfireDashboard();
             });
 
+            // This adds or updates the the job that handles the calling of the update api.
             RecurringJob.AddOrUpdate(() => hangfireServices.CallApi(), Cron.Minutely);
-            //using (var connection = JobStorage.Current.GetConnection())
-            //{
-            //    foreach (var recurringJob in StorageConnectionExtensions.GetRecurringJobs(connection))
-            //    {
-            //        RecurringJob.RemoveIfExists(recurringJob.Id);
-            //    }
-            //}
+
+            // Use this to remove all recurring jobs.
+            //DataSeeder.RemoveAllRecurringJobs();
 
 
         }
-
     }
 }
+

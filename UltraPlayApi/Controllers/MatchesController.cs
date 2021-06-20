@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using UltraPlayApi.Services.Interfaces;
 using UltraPlayApi.Web.ViewModels.Match;
-using UltraPlayApi.Web.ViewModels.Bets;
 using UltraPlayApi.Web.ViewModels.Odds;
 
 namespace UltraPlayApi.Web.Controllers
@@ -15,10 +14,12 @@ namespace UltraPlayApi.Web.Controllers
     public class MatchesController : ControllerBase
     {
         private readonly IMatchServices matchServices;
+        private readonly IOddsServices oddsServices;
 
-        public MatchesController(IMatchServices matchServices)
+        public MatchesController(IMatchServices matchServices, IOddsServices oddsServices)
         {
             this.matchServices = matchServices;
+            this.oddsServices = oddsServices;
         }
 
         [HttpGet("{uniqueId:int}", Name = "Get")]

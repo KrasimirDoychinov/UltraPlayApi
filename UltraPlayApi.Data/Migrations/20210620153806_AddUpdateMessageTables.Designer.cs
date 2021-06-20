@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UltraPlayApi.Data;
 
 namespace UltraPlayApi.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210620153806_AddUpdateMessageTables")]
+    partial class AddUpdateMessageTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,16 +54,10 @@ namespace UltraPlayApi.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BetId")
+                    b.Property<int?>("BetId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NewValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OldValue")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UniqueId")
@@ -142,14 +138,8 @@ namespace UltraPlayApi.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MatchId")
+                    b.Property<int?>("MatchId")
                         .HasColumnType("int");
-
-                    b.Property<string>("NewValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OldValue")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UniqueId")
                         .HasColumnType("int");
@@ -200,14 +190,8 @@ namespace UltraPlayApi.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NewValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OddId")
+                    b.Property<int?>("OddId")
                         .HasColumnType("int");
-
-                    b.Property<string>("OldValue")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UniqueId")
                         .HasColumnType("int");
@@ -252,9 +236,7 @@ namespace UltraPlayApi.Data.Migrations
                 {
                     b.HasOne("UltraPlayApi.Data.Models.Bet", "Bet")
                         .WithMany()
-                        .HasForeignKey("BetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BetId");
 
                     b.Navigation("Bet");
                 });
@@ -285,9 +267,7 @@ namespace UltraPlayApi.Data.Migrations
                 {
                     b.HasOne("UltraPlayApi.Data.Models.Match", "Match")
                         .WithMany()
-                        .HasForeignKey("MatchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MatchId");
 
                     b.Navigation("Match");
                 });
@@ -307,9 +287,7 @@ namespace UltraPlayApi.Data.Migrations
                 {
                     b.HasOne("UltraPlayApi.Data.Models.Odd", "Odd")
                         .WithMany()
-                        .HasForeignKey("OddId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OddId");
 
                     b.Navigation("Odd");
                 });

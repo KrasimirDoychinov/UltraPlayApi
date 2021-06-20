@@ -24,9 +24,15 @@ namespace UltraPlayApi.Data
 
         public DbSet<Match> Matches { get; set; }
 
+        public DbSet<MatchUpdateMessage> MatchUpdateMessages { get; set; }
+
         public DbSet<Bet> Bets { get; set; }
 
+        public DbSet<BetUpdateMessage> BetUpdateMessages { get; set; }
+
         public DbSet<Odd> Odds { get; set; }
+
+        public DbSet<OddUpdateMessage> OddUpdateMessages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,13 +41,14 @@ namespace UltraPlayApi.Data
                 optionsBuilder.UseSqlServer("Server=.;Database=UltraPlayApi;Integrated Security=true;");
             }
 
-            //optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
+            // I have set the entities to have DeleteBehaviour.Cascade for testing reasons. If the tables have to be truncated it's easier.
             builder.Entity<Sport>()
                 .HasMany(x => x.Events)
                 .WithOne(y => y.Sport)
@@ -61,7 +68,6 @@ namespace UltraPlayApi.Data
                 .HasMany(x => x.Odds)
                 .WithOne(y => y.Bet)
                 .OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }

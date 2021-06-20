@@ -26,11 +26,6 @@ namespace UltraPlayApi.Services.Implementations
             await this.context.SaveChangesAsync();
         }
 
-        public T GetFirstSport<T>(IMapper mapper = null) =>
-            this.context.Sports
-            .To<T>(mapper)
-            .FirstOrDefault();
-
         public Sport GetFirstSport(IMapper mapper = null) =>
             this.context.Sports
             .FirstOrDefault();

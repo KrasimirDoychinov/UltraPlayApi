@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UltraPlayApi.Data.Enums;
 using UltraPlayApi.Services.AutoMapper;
-using UltraPlayApi.Web.ViewModels.Bets;
+using UltraPlayApi.Web.Dtos.Bets;
 
 namespace UltraPlayApi.Web.ViewModels.Match
 {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using UltraPlayApi.Data.Models;
 
 namespace UltraPlayApi.Services.Interfaces
@@ -9,6 +10,6 @@ namespace UltraPlayApi.Services.Interfaces
     {
         public IEnumerable<Odd> GetAllOdds();
 
-        public void FilterOdd(IEnumerable<Odd> currOdds, Odd newOdd);
+        public Task FilterOdd(IEnumerable<Odd> currOdds, Odd newOdd);
     }
 }

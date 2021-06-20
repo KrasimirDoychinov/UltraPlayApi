@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using UltraPlayApi.Data.Models;
 
 namespace UltraPlayApi.Services.Interfaces
@@ -9,6 +10,6 @@ namespace UltraPlayApi.Services.Interfaces
     {
         public IEnumerable<Bet> GetAllBets();
 
-        public void FilterBet(IEnumerable<Bet> currBets, Bet newBet);
+        public Task FilterBet(IEnumerable<Bet> currBets, Bet newBet);
     }
 }

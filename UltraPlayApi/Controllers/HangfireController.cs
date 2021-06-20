@@ -51,8 +51,8 @@ namespace UltraPlayApi.Web.Controllers
         [HttpGet]
         public async Task<OkObjectResult> UpdateJob()
         {
-            await DataSeeder.ConsumeXml(sportServices, httpServices, xmlServices, eventServices, matchServices,
-                 betServices, oddsServices, context);
+            await DataSeeder.ConsumeXml(this.sportServices, this.httpServices, this.xmlServices, this.eventServices, this.matchServices,
+                 this.betServices, this.oddsServices, this.context);
             return Ok("Job updated");
         }
 

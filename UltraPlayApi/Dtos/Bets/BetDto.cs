@@ -6,7 +6,7 @@ using UltraPlayApi.Data.Models;
 using UltraPlayApi.Services.AutoMapper;
 using UltraPlayApi.Web.ViewModels.Odds;
 
-namespace UltraPlayApi.Web.ViewModels.Bets
+namespace UltraPlayApi.Web.Dtos.Bets
 {
     public class BetDto : IMapFrom<Bet>
     {

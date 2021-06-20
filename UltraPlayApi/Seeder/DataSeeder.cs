@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hangfire;
+using Hangfire.Storage;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,7 +14,6 @@ namespace UltraPlayApi.Web.Seeder
 {
     public class DataSeeder
     {
-        
         public static async Task ConsumeXml(ISportServices sportServices, IHttpServices httpServices, IXmlServices xmlServices,
             IEventServices eventServices, IMatchServices matchServices, IBetServices betServices, IOddsServices oddsServices,
             ApplicationDbContext context)
@@ -29,12 +30,12 @@ namespace UltraPlayApi.Web.Seeder
             }
             else
             {
-                FilterEntities(newSport.Events, eventServices, matchServices, betServices, oddsServices);
+                await FilterEntities(newSport.Events, eventServices, matchServices, betServices, oddsServices);
                 await context.SaveChangesAsync();
             }
         }
 
-        private static void FilterEntities(IEnumerable<Event> newEvents, IEventServices eventServices, IMatchServices matchServices,
+        private static async Task FilterEntities(IEnumerable<Event> newEvents, IEventServices eventServices, IMatchServices matchServices,
             IBetServices betServices, IOddsServices oddsServices)
         {
             var currEvents = eventServices.GetAllEvents().ToList();
@@ -51,21 +52,32 @@ namespace UltraPlayApi.Web.Seeder
 
                 foreach (var newMatch in newEvent.Matches)
                 {
-                    matchServices.FilterMatch(currMatches, newMatch);
+                    await matchServices.FilterMatch(currMatches, newMatch);
 
                     foreach (var newBet in newMatch.Bets)
                     {
-                        betServices.FilterBet(currBets, newBet);
+                        await betServices.FilterBet(currBets, newBet);
 
                         foreach (var newOdd in newBet.Odds)
                         {
-                            oddsServices.FilterOdd(currOdds, newOdd);
+                            await oddsServices.FilterOdd(currOdds, newOdd);
                         }
                     }
                 }
             }
             stopwatch.Stop();
             Console.WriteLine($"Filtering completed. Elapsed time - {stopwatch.ElapsedMilliseconds}");
+        }
+
+        public static void RemoveAllRecurringJobs()
+        {
+            using (var connection = JobStorage.Current.GetConnection())
+            {
+                foreach (var recurringJob in StorageConnectionExtensions.GetRecurringJobs(connection))
+                {
+                    RecurringJob.RemoveIfExists(recurringJob.Id);
+                }
+            }
         }
     }
 }

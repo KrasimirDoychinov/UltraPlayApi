@@ -11,8 +11,6 @@ namespace UltraPlayApi.Services.Interfaces
     {
         public Task AddSportAsync(Sport sport);
 
-        public T GetFirstSport<T>(IMapper mapper = null);
-
         public Sport GetFirstSport(IMapper mapper = null);
 
         public int GetSportId();
