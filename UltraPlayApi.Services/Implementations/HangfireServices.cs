@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hangfire;
+using Hangfire.Storage;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -15,6 +17,17 @@ namespace UltraPlayApi.Services.Implementations
             {
                 using (var response = client.GetAsync("https://localhost:5001/api/hangfire").Result)
                 {
+                }
+            }
+        }
+
+        public void RemoveAllRecurringJobs()
+        {
+            using (var connection = JobStorage.Current.GetConnection())
+            {
+                foreach (var recurringJob in StorageConnectionExtensions.GetRecurringJobs(connection))
+                {
+                    RecurringJob.RemoveIfExists(recurringJob.Id);
                 }
             }
         }

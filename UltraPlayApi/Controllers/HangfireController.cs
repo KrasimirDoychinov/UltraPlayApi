@@ -19,28 +19,13 @@ namespace UltraPlayApi.Web.Controllers
     [Route("api/[controller]")]
     public class HangfireController : ControllerBase
     {
-        private readonly ISportServices sportServices;
-        private readonly IHttpServices httpServices;
-        private readonly IXmlServices xmlServices;
-        private readonly IEventServices eventServices;
-        private readonly IMatchServices matchServices;
-        private readonly IBetServices betServices;
-        private readonly IOddsServices oddsServices;
-        private readonly ApplicationDbContext context;
+        private readonly IDataServices dataServices;
 
-        public HangfireController(ISportServices sportServices, IHttpServices httpServices, IXmlServices xmlServices,
-            IEventServices eventServices, IMatchServices matchServices, IBetServices betServices, IOddsServices oddsServices,
-            ApplicationDbContext context)
+        public HangfireController(IDataServices dataServices)
         {
-            this.sportServices = sportServices;
-            this.httpServices = httpServices;
-            this.xmlServices = xmlServices;
-            this.eventServices = eventServices;
-            this.matchServices = matchServices;
-            this.betServices = betServices;
-            this.oddsServices = oddsServices;
-            this.context = context;
+            this.dataServices = dataServices;
 
+            // We use this, because there were exceptions being thrown when trying to access the api.
             ServicePointManager.ServerCertificateValidationCallback = delegate (object sender, X509Certificate certificate,
                 X509Chain chain, SslPolicyErrors sslPolicyErrors)
             {
@@ -51,8 +36,7 @@ namespace UltraPlayApi.Web.Controllers
         [HttpGet]
         public async Task<OkObjectResult> UpdateJob()
         {
-            await DataSeeder.ConsumeXml(this.sportServices, this.httpServices, this.xmlServices, this.eventServices, this.matchServices,
-                 this.betServices, this.oddsServices, this.context);
+            await this.dataServices.ConsumeXml();
             return Ok("Job updated");
         }
 

@@ -77,6 +77,7 @@ namespace UltraPlayApi.Web
             services.AddTransient<IOddsServices, OddsServices>();
             services.AddTransient<IBetServices, BetServices>();
             services.AddTransient<IHangfireServices, HangfireServices>();
+            services.AddTransient<IDataServices, DataServices>();
             services.AddTransient(typeof(BetUpdateMessageServices));
             services.AddTransient(typeof(MatchUpdateMessageServices));
             services.AddTransient(typeof(OddUpdateMessageServices));
@@ -113,7 +114,7 @@ namespace UltraPlayApi.Web
             RecurringJob.AddOrUpdate(() => hangfireServices.CallApi(), Cron.Minutely);
 
             // Use this to remove all recurring jobs.
-            //DataSeeder.RemoveAllRecurringJobs();
+            //hangfireServices.RemoveAllRecurringJobs();
 
 
         }

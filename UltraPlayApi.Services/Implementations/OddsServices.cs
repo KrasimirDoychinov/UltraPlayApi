@@ -23,20 +23,13 @@ namespace UltraPlayApi.Services.Implementations
         public IEnumerable<Odd> GetAllOdds()
             => this.context.Odds;
 
-        public async Task FilterOdd(IEnumerable<Odd> currOdds, Odd newOdd)
+        public Odd FindChangedBet(IEnumerable<Odd> currOdds, Odd newOdd)
+            => currOdds.FirstOrDefault(x => x.UniqueId == newOdd.UniqueId && x.Value != newOdd.Value);
+
+        public void UpdateOdd(Odd foundOdd, Odd newOdd)
         {
-            var foundOdd = currOdds.FirstOrDefault(x => x.UniqueId == newOdd.UniqueId && x.Value != newOdd.Value);
-            if (foundOdd != null)
-            {
-                this.context.Odds.Update(foundOdd);
-                await this.oddUpdateMessageServices.Create(foundOdd.UniqueId,
-                    $"Value changed from - {foundOdd.Value} to {newOdd.Value}", foundOdd.Id,
-                    foundOdd.Value.ToString(), newOdd.Value.ToString());
-
-                Console.WriteLine($"Value changed from - {foundOdd.Value} to {newOdd.Value}");
-
-                foundOdd.Value = newOdd.Value;
-            }
+            this.context.Odds.Update(foundOdd);
+            foundOdd.Value = newOdd.Value;
         }
     }
 }

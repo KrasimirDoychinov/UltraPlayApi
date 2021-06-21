@@ -21,25 +21,17 @@ namespace UltraPlayApi.Services.Implementations
         }
 
         public IEnumerable<Bet> GetAllBets()
-            => this.context.Bets;
+            => this.context.Bets
+            .ToList();
 
-        public async Task FilterBet(IEnumerable<Bet> currBets, Bet newBet)
+        public Bet FindChangedBet(IEnumerable<Bet> currBets, Bet newBet)
+            => currBets.FirstOrDefault(x => x.UniqueId == newBet.UniqueId && x.IsLive != newBet.IsLive);
+
+        public void UpdateBet(Bet foundBet, Bet newBet)
         {
-            var foundBet = currBets
-                                  .FirstOrDefault(x => x.UniqueId == newBet.UniqueId && x.IsLive != newBet.IsLive);
-            if (foundBet != null)
-            {
-                this.context.Bets.Update(foundBet);
-                await this.betUpdateMessageServices.Create(foundBet.UniqueId, 
-                    $"IsLive changed from - {foundBet.IsLive} to {newBet.IsLive}",
-                    foundBet.Id, foundBet.IsLive.ToString(), newBet.IsLive.ToString());
-
-                Console.WriteLine($"IsLive changed from - {foundBet.IsLive} to {newBet.IsLive}");
-
-                foundBet.IsLive = newBet.IsLive;
-            }
+            this.context.Bets.Update(foundBet);
+            foundBet.IsLive = newBet.IsLive;
         }
 
-        
     }
 }

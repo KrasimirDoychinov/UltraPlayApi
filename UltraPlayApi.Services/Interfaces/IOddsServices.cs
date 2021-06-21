@@ -10,6 +10,8 @@ namespace UltraPlayApi.Services.Interfaces
     {
         public IEnumerable<Odd> GetAllOdds();
 
-        public Task FilterOdd(IEnumerable<Odd> currOdds, Odd newOdd);
+        public Odd FindChangedBet(IEnumerable<Odd> currOdds, Odd newOdd);
+
+        public void UpdateOdd(Odd foundOdd, Odd newOdd);
     }
 }

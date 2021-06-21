@@ -15,6 +15,8 @@ namespace UltraPlayApi.Services.Interfaces
 
         public IEnumerable<T> GetMatchesIn24Hours<T>(IMapper mapper = null);
 
-        public Task FilterMatch(IEnumerable<Match> currMatches, Match newMatch);
+        public Match FindChangedMatch(IEnumerable<Match> currMatches, Match newMatch);
+
+        public void UpdateMatch(Match foundMatch, Match newMatch);
     }
 }

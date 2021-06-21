@@ -6,4 +6,3 @@ C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.dll
 C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.pdb
-C:\Users\User\source\repos\UltraPlayApi\UltraPlayApi.Data\obj\Debug\netstandard2.1\UltraPlayApi.Data.csprojAssemblyReference.cache

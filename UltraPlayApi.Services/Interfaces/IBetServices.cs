@@ -10,6 +10,8 @@ namespace UltraPlayApi.Services.Interfaces
     {
         public IEnumerable<Bet> GetAllBets();
 
-        public Task FilterBet(IEnumerable<Bet> currBets, Bet newBet);
+        public Bet FindChangedBet(IEnumerable<Bet> currBets, Bet newBet);
+
+        public void UpdateBet(Bet newBet, Bet foundBet);
     }
 }

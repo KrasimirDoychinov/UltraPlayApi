@@ -47,27 +47,6 @@ namespace UltraPlayApi.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            // I have set the entities to have DeleteBehaviour.Cascade for testing reasons. If the tables have to be truncated it's easier.
-            builder.Entity<Sport>()
-                .HasMany(x => x.Events)
-                .WithOne(y => y.Sport)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Entity<Event>()
-                .HasMany(x => x.Matches)
-                .WithOne(y => y.Event)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Entity<Match>()
-                .HasMany(x => x.Bets)
-                .WithOne(y => y.Match)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Entity<Bet>()
-                .HasMany(x => x.Odds)
-                .WithOne(y => y.Bet)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
