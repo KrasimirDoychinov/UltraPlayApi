@@ -6,6 +6,8 @@ namespace UltraPlayApi.Data.Models
     {
         public int Id { get; set; }
 
+        public int UniqueId { get; set; }
+
         public string Description { get; set; }
 
         public string OldValue { get; set; }
