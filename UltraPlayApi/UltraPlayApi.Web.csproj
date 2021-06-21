@@ -32,8 +32,4 @@
     <ProjectReference Include="..\UltraPlayApi.Services\UltraPlayApi.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Seeder\" />
-  </ItemGroup>
-
 </Project>

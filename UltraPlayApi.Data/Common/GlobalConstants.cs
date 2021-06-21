@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UltraPlayApi.Data.Common
+﻿namespace UltraPlayApi.Data.Common
 {
     public static class GlobalConstants
     {

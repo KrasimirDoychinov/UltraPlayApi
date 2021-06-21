@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UltraPlayApi.Data.Models
+﻿namespace UltraPlayApi.Data.Models
 {
     public class OddUpdateMessage : BaseUpdateMessage
     {

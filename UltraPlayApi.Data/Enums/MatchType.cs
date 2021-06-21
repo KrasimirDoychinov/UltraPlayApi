@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UltraPlayApi.Data.Enums
+﻿namespace UltraPlayApi.Data.Enums
 {
     public enum MatchType
     {

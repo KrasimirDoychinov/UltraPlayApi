@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
-using UltraPlayApi.Data;
-using UltraPlayApi.Data.Models;
+
 using UltraPlayApi.Services.Interfaces;
-using System.IO;
 
 namespace UltraPlayApi.Services.Implementations
 {

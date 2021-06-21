@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
+
 using System.Linq;
-using System.Text;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using UltraPlayApi.Data;
 using UltraPlayApi.Data.Models;
 using UltraPlayApi.Services.AutoMapper;

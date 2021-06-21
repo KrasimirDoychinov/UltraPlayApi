@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using UltraPlayApi.Web.ViewModels.UpdateMessages;
 using UltraPlayApi.Services.Implementations;
-using UltraPlayApi.Web.Dtos.UpdateMessages;
 
 namespace UltraPlayApi.Web.Controllers
 {
@@ -27,7 +24,7 @@ namespace UltraPlayApi.Web.Controllers
         [HttpGet("bets")]
         public IActionResult GetBetUpdates()
         {
-            var messages = this.betUpdateMessageServices.GetAll<BetUpdateMessageDto>();
+            var messages = this.betUpdateMessageServices.GetAll<BetUpdateMessageViewModel>();
 
             return this.Ok(messages);
         }
@@ -35,7 +32,7 @@ namespace UltraPlayApi.Web.Controllers
         [HttpGet("odds")]
         public IActionResult GetOddUpdates()
         {
-            var messages = this.oddUpdateMessageServices.GetAll<OddUpdateMessageDto>();
+            var messages = this.oddUpdateMessageServices.GetAll<OddUpdateMessageViewModel>();
 
             return this.Ok(messages);
         }
@@ -43,7 +40,7 @@ namespace UltraPlayApi.Web.Controllers
         [HttpGet("matches")]
         public IActionResult GetMatchUpdates()
         {
-            var messages = this.matchUpdateMessageServices.GetAll<MatchUpdateMessageDto>();
+            var messages = this.matchUpdateMessageServices.GetAll<MatchUpdateMessageViewModel>();
 
             return this.Ok(messages);
         }

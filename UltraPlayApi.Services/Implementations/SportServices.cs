@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
+
 using UltraPlayApi.Data;
 using UltraPlayApi.Data.Models;
 using UltraPlayApi.Services.Interfaces;
-using UltraPlayApi.Services.AutoMapper;
+
 using AutoMapper;
 
 namespace UltraPlayApi.Services.Implementations

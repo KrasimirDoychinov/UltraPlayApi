@@ -1,9 +1,8 @@
 ﻿using Hangfire;
 using Hangfire.Storage;
-using System;
-using System.Collections.Generic;
+
 using System.Net.Http;
-using System.Text;
+
 using UltraPlayApi.Services.Interfaces;
 
 namespace UltraPlayApi.Services.Implementations

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
 using UltraPlayApi.Data.Models;
 using UltraPlayApi.Services.AutoMapper;
 using UltraPlayApi.Web.ViewModels.Odds;
 
 namespace UltraPlayApi.Web.Dtos.Bets
 {
-    public class BetDto : IMapFrom<Bet>
+    public class BetViewModel : IMapFrom<Bet>
     {
 		public string Name { get; set; }
 
@@ -16,6 +14,6 @@ namespace UltraPlayApi.Web.Dtos.Bets
 
 		public int UniqueId { get; set; }
 
-		public IEnumerable<OddDto> Odds { get; set; }
+		public IEnumerable<OddViewModel> Odds { get; set; }
 	}
 }

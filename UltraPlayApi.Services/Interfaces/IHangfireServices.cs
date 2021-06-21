@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UltraPlayApi.Services.Interfaces
+﻿namespace UltraPlayApi.Services.Interfaces
 {
     public interface IHangfireServices
     {

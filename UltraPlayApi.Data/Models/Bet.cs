@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
 namespace UltraPlayApi.Data.Models
 {
-	[XmlRoot(ElementName = "Bet")]
+    [XmlRoot(ElementName = "Bet")]
 	public class Bet
 	{
 		[Key]

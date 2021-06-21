@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 using UltraPlayApi.Services.Interfaces;
 using UltraPlayApi.Web.ViewModels.Match;
-using UltraPlayApi.Web.ViewModels.Odds;
 
 namespace UltraPlayApi.Web.Controllers
 {
@@ -25,14 +24,14 @@ namespace UltraPlayApi.Web.Controllers
         [HttpGet("{uniqueId:int}", Name = "Get")]
         public IActionResult GetMatchById(int uniqueId)
         {
-            var match = this.matchServices.GetMatchById<MatchDto>(uniqueId);
+            var match = this.matchServices.GetMatchById<MatchViewModel>(uniqueId);
             return this.Ok(match);
         }
 
         [HttpGet("all")]
         public IActionResult GetMatchesIn24Hours()
         {
-            var matches = this.matchServices.GetMatchesIn24Hours<MatchDto>();
+            var matches = this.matchServices.GetMatchesIn24Hours<MatchViewModel>();
             var filteredMatches = matches.Where(x => (x.StartDate - DateTime.Now).Days == 0).ToList();
 
             foreach (var match in filteredMatches)

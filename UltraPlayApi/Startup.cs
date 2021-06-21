@@ -1,13 +1,13 @@
 using Hangfire;
 using Hangfire.SqlServer;
 
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 using System;
 using System.Net.Http;
@@ -22,13 +22,6 @@ using UltraPlayApi.Web.ViewModels.Events;
 namespace UltraPlayApi.Web
 {
 
-    // TODO
-    // Add try catch
-    // Ask about the 24hour endpoint
-    // Refactor code
-    // Check for errors, readability, reusability and etc.
-    // Write some comments
-    // Write some tests
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -88,7 +81,8 @@ namespace UltraPlayApi.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHangfireServices hangfireServices)
         {
-            AutoMapperConfig.RegisterMappings(typeof(EventDto).GetTypeInfo().Assembly);
+            
+            AutoMapperConfig.RegisterMappings(typeof(EventViewModel).GetTypeInfo().Assembly);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -113,7 +107,7 @@ namespace UltraPlayApi.Web
             // This adds or updates the the job that handles the calling of the update api.
             RecurringJob.AddOrUpdate(() => hangfireServices.CallApi(), Cron.Minutely);
 
-            // Use this to remove all recurring jobs.
+            // Use this to remove all recurring jobs in hangfire.
             //hangfireServices.RemoveAllRecurringJobs();
 
 

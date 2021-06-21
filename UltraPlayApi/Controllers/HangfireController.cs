@@ -1,17 +1,11 @@
-﻿using Hangfire;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+
 using System.Net;
-using System.Net.Http;
 using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using UltraPlayApi.Data;
+using System.Security.Cryptography.X509Certificates;
+
 using UltraPlayApi.Services.Interfaces;
-using UltraPlayApi.Web.Seeder;
 
 namespace UltraPlayApi.Web.Controllers
 {
