@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 
 namespace UltraPlayApi.Data.Models
 {
+	//ТЕСТ
     [XmlRoot(ElementName = "Bet")]
 	public class Bet
 	{
